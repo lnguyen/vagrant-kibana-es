@@ -1,0 +1,13 @@
+#!/bin/bash
+
+yum update -y
+yum install wget vim -y
+
+pushd /root
+wget https://download.elasticsearch.org/kibana/kibana/kibana-3.0.0.tar.gz
+tar -xvf kibana-3.0.0.tar.gz
+mv kibana-3.0.0 public
+cp /vagrant/config/config.js /root/public/config.js
+cp /vagrant/webserver/webserver /root/webserver
+./webserver &>webserver.log &
+popd

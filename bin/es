@@ -1,0 +1,10 @@
+#!/bin/bash
+
+yum update -y
+yum install wget vim java-1.7.0-openjdk.x86_64 -y
+
+pushd /root
+wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.0.noarch.rpm
+rpm -ivh elasticsearch-1.1.0.noarch.rpm
+service elasticsearch start
+popd
